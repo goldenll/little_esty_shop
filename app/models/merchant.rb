@@ -74,4 +74,8 @@ class Merchant < ApplicationRecord
   def check_invoice_status?
     invoices.where(status:1).count == 0
   end
+
+  def sort_coupons_by_popularity
+    coupons.left_joins(:invoices).group(:id).order('COUNT(invoices.id) DESC')
+  end
 end

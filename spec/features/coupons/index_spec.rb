@@ -22,13 +22,13 @@ RSpec.describe "coupons index" do
     @coupon8 = Coupon.create!(name: "Eleven Dollars Off", discount: 11, code: "11123456789", percent_dollar: "dollar", merchant: @merchant1)
     @coupon9 = Coupon.create!(name: "Eleven Percent Off", discount: 11, code: "11987654321", percent_dollar: "percent", status: 0, merchant: @merchant1)
 
-    @invoice_1 = Invoice.create!(customer_id: @customer_1.id, status: 2)
-    @invoice_2 = Invoice.create!(customer_id: @customer_1.id, status: 2)
-    @invoice_3 = Invoice.create!(customer_id: @customer_2.id, status: 2)
-    @invoice_4 = Invoice.create!(customer_id: @customer_3.id, status: 2)
-    @invoice_5 = Invoice.create!(customer_id: @customer_4.id, status: 2)
-    @invoice_6 = Invoice.create!(customer_id: @customer_5.id, status: 2)
-    @invoice_7 = Invoice.create!(customer_id: @customer_6.id, status: 1)
+    @invoice_1 = Invoice.create!(customer_id: @customer_1.id, status: 2, coupon_id: @coupon6.id)
+    @invoice_2 = Invoice.create!(customer_id: @customer_1.id, status: 2, coupon_id: @coupon6.id)
+    @invoice_3 = Invoice.create!(customer_id: @customer_2.id, status: 2, coupon_id: @coupon6.id)
+    @invoice_4 = Invoice.create!(customer_id: @customer_3.id, status: 2, coupon_id: @coupon2.id)
+    @invoice_5 = Invoice.create!(customer_id: @customer_4.id, status: 2, coupon_id: @coupon9.id)
+    @invoice_6 = Invoice.create!(customer_id: @customer_5.id, status: 2, coupon_id: @coupon9.id)
+    @invoice_7 = Invoice.create!(customer_id: @customer_6.id, status: 1, coupon_id: @coupon5.id)
 
     @item_1 = Item.create!(name: "Shampoo", description: "This washes your hair", unit_price: 10, merchant_id: @merchant1.id)
     @item_2 = Item.create!(name: "Conditioner", description: "This makes your hair shiny", unit_price: 8, merchant_id: @merchant1.id)
@@ -168,6 +168,21 @@ RSpec.describe "coupons index" do
       expect(page).to have_content(holidays[1][:date])
       expect(page).to have_content(holidays[2][:name])
       expect(page).to have_content(holidays[2][:date])
+    end
+  end
+# Extension 1: Merchant Coupon Index page, active and inactive coupons sort
+  it "sorts active and inactive coupons by popularity" do
+
+    within "#active" do
+      expect(@coupon6.name).to appear_before(@coupon2.name)
+      expect(@coupon2.name).to appear_before(@coupon1.name)
+      expect(@coupon2.name).to appear_before(@coupon8.name)
+    end
+    
+    within "#inactive" do
+    expect(@coupon9.name).to appear_before(@coupon5.name)
+    expect(@coupon5.name).to appear_before(@coupon3.name)
+    expect(@coupon5.name).to appear_before(@coupon7.name)
     end
   end
 end
