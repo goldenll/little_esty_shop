@@ -172,7 +172,6 @@ RSpec.describe "coupons index" do
   end
 # Extension 1: Merchant Coupon Index page, active and inactive coupons sort
   it "sorts active and inactive coupons by popularity" do
-
     within "#active" do
       expect(@coupon6.name).to appear_before(@coupon2.name)
       expect(@coupon2.name).to appear_before(@coupon1.name)
