@@ -1,9 +1,6 @@
 <h1> My Coupons </h1>
 
 <h3> Coupons: </h3>
-<% @merchant.coupons.each do |coupon| %>
-    <%= link_to "Show #{coupon.name}", "/merchants/#{@merchant.id}/coupons/#{coupon.id}" %> - Amount Off: $<%="#{coupon.discount}" %></p>
-<% end %>
 
 <p><%= link_to "Create New Coupon", "/merchants/#{@merchant.id}/coupons/new" %></p>
 
@@ -11,7 +8,7 @@
 <h3> Active Coupons: </h3>
 <p><% @sorted_coupons.each do |coupon| %></p>
   <% if coupon.status == ("active") %>
-    <p><%= coupon.name %></p>
+    <%= link_to "Show #{coupon.name}", "/merchants/#{@merchant.id}/coupons/#{coupon.id}" %> - Amount Off: $<%="#{coupon.discount}" %></p>
   <% end %>
 <% end %>
 </div>
@@ -19,7 +16,7 @@
 <h3> Inactive Coupons: </h3>
 <p><% @sorted_coupons.each do |coupon| %></p>
   <% if coupon.status == ("inactive") %>
-    <p><%= coupon.name %></p>
+    <%= link_to "Show #{coupon.name}", "/merchants/#{@merchant.id}/coupons/#{coupon.id}" %> - Amount Off: $<%="#{coupon.discount}" %></p>
   <% end %>
 <% end %>
 </div>
