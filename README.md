@@ -1,7 +1,7 @@
 # little_esty_shop
 # Coupon Codes
 
-This project is an extension of the Little Esty Shop group project. You will add functionality for merchants to create coupons for their shop.
+This solo project is an extension of the Little Esty Shop group project. I added functionality to an e-commerce store to allow merchants to create coupons for their shop.
 
 # Learning Goals
  - Write migrations to create tables and relationships between tables
@@ -12,7 +12,7 @@ This project is an extension of the Little Esty Shop group project. You will add
  - Write feature tests that fully cover the functionality of the application
 
 # Additional Details
- - This project uses Rails 7.0.x, Ruby 3.1.1, and PostgreSQL
- - Gems used: RSpec, Capybara, Shoulda-Matchers, Orderly, HTTParty, Launchy, Faker and FactoryBot are pre-approved
+ - This project used Rails 7.0.x, Ruby 3.1.1, and PostgreSQL
+ - Gems used: RSpec, Capybara, Shoulda-Matchers, Orderly, HTTParty, Launchy, Faker and FactoryBot
  - This is a solo project, that was completed alone without assistance from cohortmates, alumni, mentors, rocks, etc.
  - This project has been deployed to the internet: <https://little-esty-shop-3rhm.onrender.com/>
