@@ -15,4 +15,4 @@ This solo project is an extension of the Little Esty Shop group project. I added
  - This project used Rails 7.0.x, Ruby 3.1.1, and PostgreSQL
  - Gems used: RSpec, Capybara, Shoulda-Matchers, Orderly, HTTParty, Launchy, Faker and FactoryBot
  - This is a solo project, that was completed alone without assistance from cohortmates, alumni, mentors, rocks, etc.
- - This project has been deployed to the internet: <https://little-esty-shop-3rhm.onrender.com/>
+ - This project has been deployed to the internet: [here]<https://little-esty-shop-3rhm.onrender.com/> (currently disabled) 
